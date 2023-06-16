@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Verification</title>
+  <meta charset="UTF-8">
+  <style>
+    /* CSS styles here */
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #0046be;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #333333;
+    }
+
+    p {
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .verification-code {
+      background-color: #f2f2f2;
+      padding: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .note {
+      font-style: italic;
+    }
+
+    .footer {
+      color: #888888;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+
+    .form-button {
+      padding: 10px 20px;
+      background-color: #0046be;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<h1>Email Verification</h1>
+
+<p>Dear User,</p>
+
+<p>Thank you for creating an account. To complete the verification process, please use the following verification code:</p>
+
+<h2>Verification Code: <span class="verification-code" th:text="${verificationCode}"></span></h2>
+
+<p>Please enter the above verification code in the required field to verify your account.</p>
+
+<p class="note">If you didn't initiate this request, please ignore this email. Your account will not be verified.</p>
+
+<div class="form-container">
+  <h2>Verification Form</h2>
+  <form action="/verify">
+    <div class="form-group">
+      <label class="form-label" for="verificationCodeInput">Verification Code:</label>
+      <input class="form-input" type="text" id="verificationCodeInput" name="code">
+    </div>
+    <button class="form-button" type="submit">Verify</button>
+  </form>
+</div>
+
+<p class="footer">Thank you,</p>
+<p class="footer">The Verification Team</p>
+</body>
+</html>

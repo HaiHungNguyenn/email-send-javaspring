@@ -3,6 +3,7 @@ package com.hunghai.emailverifycode;
 import com.hunghai.emailverifycode.model.Email;
 import com.hunghai.emailverifycode.model.User;
 import com.hunghai.emailverifycode.service.EmailSenderService;
+import com.hunghai.emailverifycode.util.Utils;
 import jakarta.mail.*;
 import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
@@ -80,12 +81,13 @@ class EmailVerifyCodeApplicationTests {
         email.setTo("hainhse173100@fpt.edu.vn");
         email.setFrom("nguyenhai181911@gmail.com");
         email.setSubject("Welcome Email from Hai Hung Nguyen");
-        email.setTemplate("mail-template.html");
+        email.setTemplate("mail-verifycode.html");
         User user = new User("hunghai","22","12390128");
         Map<String, Object> properties = new HashMap<>();
         properties.put("name", user.getName());
         properties.put("age", user.getAge());
         properties.put("phone", user.getPhone());
+        properties.put("verificationCode", Utils.generateRandomString());
         email.setProperties(properties);
         System.out.println(email.getProperties());
 
