@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Template for HTML email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #0046be;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #cccccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        b {
+            color: #009900;
+        }
+
+        em {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to CodingNConcepts Newsletter!</h1>
+
+<table>
+    <tr>
+        <th>Name:</th>
+        <td><span th:text="${name}">Peter Static</span></td>
+    </tr>
+    <tr>
+        <th>Age:</th>
+        <td><span th:text="${age}"></span></td>
+    </tr>
+    <tr>
+        <th>Phone:</th>
+        <td><span th:text="${phone}"></span></td>
+    </tr>
+</table>
+
+<p>Regards,</p>
+<p><em>The CodingNConcepts Team</em></p>
+</body>
+</html>
